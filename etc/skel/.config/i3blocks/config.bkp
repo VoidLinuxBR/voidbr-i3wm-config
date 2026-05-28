@@ -1,0 +1,14 @@
+[cpu]
+label=
+command=grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}'
+interval=5
+
+[memory]
+label=
+command=free -h | grep Mem | awk '{print $3 "/" $2}'
+interval=10
+
+[time]
+label=
+command=date '+%H:%M'
+interval=30

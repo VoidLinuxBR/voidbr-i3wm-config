@@ -1,0 +1,27 @@
+order += "cpu_usage"
+order += "memory"
+order += "wireless _first_"
+order += "battery 0"
+order += "time"
+
+cpu_usage {
+    format = " %usage"
+}
+
+memory {
+    format = " %used / %total"
+}
+
+wireless _first_ {
+    format_up = " %quality"
+    format_down = "睊"
+}
+
+battery 0 {
+    format = " %percentage"
+}
+
+time {
+    format = " %H:%M"
+}
+

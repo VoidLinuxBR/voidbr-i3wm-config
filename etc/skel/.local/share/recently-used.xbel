@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/suporte/config.txt" added="2025-12-29T21:16:13.399902Z" modified="2025-12-29T21:16:13.399939Z" visited="2025-12-29T21:16:13.399913Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;Firefox %u&apos;" modified="2025-12-29T21:16:13.399924Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/suporte/i3status.txt" added="2025-12-29T21:24:30.111488Z" modified="2025-12-29T21:28:12.237845Z" visited="2025-12-29T21:24:30.111492Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;Firefox %u&apos;" modified="2025-12-29T21:28:12.237836Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/suporte/tutorial_compilacao_kernel_void_linux_glibc.txt" added="2026-01-09T12:16:06.534270Z" modified="2026-01-09T12:16:07.174676Z" visited="2026-01-09T12:16:06.534276Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;Firefox %u&apos;" modified="2026-01-09T12:16:07.174636Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

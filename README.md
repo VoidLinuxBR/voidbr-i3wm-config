@@ -1,3 +1,3 @@
-# voidbr-pkgfile
+# voidbr-i3wm-config
 
-Template for VoidBR pkgmake/pkgfile packages
+Skel config for Void Linux i3WM Meta Package 
