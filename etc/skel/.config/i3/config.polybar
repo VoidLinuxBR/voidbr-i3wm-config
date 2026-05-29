@@ -1,0 +1,60 @@
+# Mod key
+set $mod Mod4
+#font pango:JetBrains Mono 10
+#font-hack-ttf-3.003_3
+font pango:Fira Code 10
+
+# Programas principais
+bindsym $mod+Return exec alacritty
+bindsym $mod+w exec firefox
+bindsym $mod+e exec thunar
+bindsym $mod+d exec rofi -show drun
+
+# Fechar janela
+bindsym $mod+Shift+q kill
+
+# Navegação entre janelas
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Mover janelas
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Workspaces com ícones
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+# Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Transparência e blur com Picom
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
+
+# Wallpaper
+exec --no-startup-id feh --bg-scale ~/Imagens/wallpaper.jpg
+
+# Ajuste de volume (funciona com PulseAudio e PipeWire)
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Captura de tela
+bindsym Print exec flameshot gui
+
+# Rede e som
+exec --no-startup-id nm-applet
+exec --no-startup-id pavucontrol
