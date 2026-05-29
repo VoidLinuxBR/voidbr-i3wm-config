@@ -47,10 +47,10 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf
 # Wallpaper
 exec --no-startup-id feh --bg-scale ~/Imagens/wallpaper.jpg
 
-# Áudio
-bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%-
-bindsym XF86AudioMute exec amixer -q sset Master toggle
+# Ajuste de volume (funciona com PulseAudio e PipeWire)
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Captura de tela
 bindsym Print exec flameshot gui
