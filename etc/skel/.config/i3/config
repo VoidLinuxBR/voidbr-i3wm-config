@@ -1,6 +1,8 @@
 # Mod key
 set $mod Mod4
-font pango:JetBrains Mono 10
+#font pango:JetBrains Mono 10
+#font-hack-ttf-3.003_3
+font pango:Fira Code 10
 
 # Programas principais
 bindsym $mod+Return exec alacritty
