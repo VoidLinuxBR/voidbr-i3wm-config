@@ -1,217 +1,58 @@
-# =========================
-# i3wm - Configuração
-# =========================
-
+# Mod key
 set $mod Mod4
+font pango:JetBrains Mono 10
 
-font pango:DejaVu Sans Mono 10
-
-# =========================
-# Inicialização
-# =========================
-
-exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id nm-applet
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id volumeicon
-exec --no-startup-id setxkbmap -layout br -variant abnt2
-
-# Ajuste conforme seu monitor
-exec --no-startup-id xrandr --output Virtual-1 --mode 1366x768
-
-# =========================
-# Aparência
-# =========================
-
-default_border pixel 2
-default_floating_border pixel 2
-
-gaps inner 8
-gaps outer 0
-
-smart_gaps on
-smart_borders on
-
-for_window [floating] move position center
-
-# =========================
-# Tema Verde-Musgo
-# =========================
-
-client.focused          #3A4A3F #556B2F #E8E8E8 #6B8E23 #556B2F
-client.focused_inactive #2B332D #2B332D #A0A0A0 #2B332D #2B332D
-client.unfocused        #1F2521 #1F2521 #707070 #1F2521 #1F2521
-client.urgent           #7A1F1F #7A1F1F #FFFFFF #7A1F1F #7A1F1F
-client.placeholder      #1F2521 #1F2521 #CCCCCC #1F2521 #1F2521
-
-# =========================
-# Áudio
-# =========================
-
-set $refresh_i3status killall -SIGUSR1 i3status
-
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# =========================
-# Mouse
-# =========================
-
-floating_modifier $mod
-tiling_drag modifier titlebar
-
-# =========================
-# Aplicativos
-# =========================
-
+# Programas principais
 bindsym $mod+Return exec alacritty
-bindsym $mod+n exec firefox
-bindsym $mod+p exec pcmanfm
-bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
+bindsym $mod+w exec firefox
+bindsym $mod+e exec thunar
+bindsym $mod+d exec rofi -show drun
 
-# =========================
-# Captura de tela
-# =========================
-
-bindsym Print exec --no-startup-id xfce4-screenshooter
-bindsym $mod+Print exec --no-startup-id xfce4-screenshooter --window
-bindsym $mod+Shift+Print exec --no-startup-id xfce4-screenshooter -r
-
-# =========================
-# Janelas
-# =========================
-
+# Fechar janela
 bindsym $mod+Shift+q kill
 
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+# Navegação entre janelas
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# Mover janelas
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-bindsym $mod+h split h
-bindsym $mod+v split v
-
-bindsym $mod+f fullscreen toggle
-
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
-bindsym $mod+a focus parent
-
-# =========================
-# Workspaces
-# =========================
-
-set $ws1 "1:term"
-set $ws2 "2:web"
-set $ws3 "3:files"
-set $ws4 "4:dev"
-set $ws5 "5:chat"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+# Workspaces com ícones
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
 
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+# Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-assign [class="Firefox"] $ws2
-assign [class="Pcmanfm"] $ws3
+# Transparência e blur com Picom
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
 
-# =========================
-# Resize
-# =========================
+# Wallpaper
+exec --no-startup-id feh --bg-scale ~/Imagens/wallpaper.jpg
 
-mode "resize" {
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+# Áudio
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%-
+bindsym XF86AudioMute exec amixer -q sset Master toggle
 
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+# Captura de tela
+bindsym Print exec flameshot gui
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-# =========================
-# Sessão
-# =========================
-
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Sair do i3?' -B 'Sim' 'i3-msg exit'"
-
-# =========================
-# Barra
-# =========================
-
-bar {
-        position top
-
-        status_command i3status
-        font pango:DejaVu Sans Mono, Font Awesome 12
-
-        workspace_buttons yes
-        strip_workspace_numbers no
-
-        colors {
-                background         #1B201B
-                statusline         #D7D7D7
-                separator          #556B2F
-
-                focused_workspace  #556B2F #556B2F #FFFFFF
-                active_workspace   #3A4A3F #3A4A3F #D7D7D7
-                inactive_workspace #1B201B #1B201B #808080
-                urgent_workspace   #7A1F1F #7A1F1F #FFFFFF
-        }
-
-        tray_output primary
-}
+# Rede e som
+exec --no-startup-id nm-applet
+exec --no-startup-id pavucontrol
