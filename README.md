@@ -1,3 +1,3 @@
 # voidbr-i3wm-config
 
-Skel config for Void Linux i3WM Meta Package 
+Skel config for VoidBR i3wm Meta Package
